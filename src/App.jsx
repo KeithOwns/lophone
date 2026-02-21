@@ -15,7 +15,7 @@ const App = () => {
     { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
-    { id: 12, phase: 2, title: 'Google Find My Device (App)', desc: 'Install "Google Find My Device" APP. Sign in with dedicated account. App Settings > Notifications > Turn OFF. Location > Allow only while using the app (Android 15 limit).', completed: false },
+    { id: 12, phase: 2, title: 'Google Find My Device (App)', desc: 'Install "Google Find My Device" APP. Sign in. Go to Phone Settings > Apps > Google Find My Device. Notifications: OFF. Location: Allow only while using app.', completed: false },
     { id: 19, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Find your offline devices. Set to "With network everywhere".', completed: false },
     { id: 13, phase: 2, title: 'Store Recent Location', desc: 'Settings > Google > Find Hub. Store recent location: ON.', completed: false },
     { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Routine: If Charging Status is "Not Charging" -> Send text to primary phone ("🚨 TRACKER UNPLUGGED").', completed: false },
