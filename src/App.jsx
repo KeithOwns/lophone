@@ -10,7 +10,7 @@ const App = () => {
     { id: 5, phase: 1, title: 'Auto Blocker: Max Restrictions', desc: 'Settings > Security and privacy > Auto Blocker. Maximum Restrictions: ON, App protection: ON.', completed: true },
     { id: 6, phase: 1, title: 'Lost Device: Theft Detection Lock', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Toggle "Theft Detection Lock" ON.', completed: false },
     { id: 7, phase: 1, title: 'Lost Device: Offline Device Lock', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Toggle "Offline Device Lock" ON.', completed: false },
-    { id: 18, phase: 1, title: 'Lost Device: Remote Lock', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Toggle "Remote Lock" ON.', completed: false },
+    { id: 18, phase: 1, title: 'Lost Device: Remote Lock (SKIP)', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Skip "Remote Lock" (Requires active SIM/eSIM).', completed: true },
     { id: 8, phase: 1, title: 'App Protection', desc: 'Settings > Security and privacy > App Security. App Protection: ON.', completed: false },
     { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
