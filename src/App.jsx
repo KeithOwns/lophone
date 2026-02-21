@@ -13,6 +13,7 @@ const App = () => {
     { id: 18, phase: 1, title: 'Lost Device: Remote Lock (SKIP)', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Skip "Remote Lock" (Requires active SIM/eSIM).', completed: true },
     { id: 8, phase: 1, title: 'App Protection', desc: 'Settings > Security and privacy > App Security. App Protection: ON.', completed: false },
     { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
+    { id: 20, phase: 1, title: 'Silence & Do Not Disturb', desc: 'Settings > Notifications > Do Not Disturb. Toggle ON. (Reduces chance of thief hearing the tracker).', completed: false },
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
