@@ -3,23 +3,21 @@ import { CheckCircle2, Circle, ShieldAlert, Radio, MapPin, Zap, Copy, Download }
 
 const App = () => {
   const [tasks, setTasks] = useState([
-    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with 2016.BMW.528i.black@gmail.com.', completed: true },
-    { id: 16, phase: 1, title: '2FA Audit', desc: 'Confirmed all personal 2FA moved to PRIMARY phone.', completed: true },
-    { id: 2, phase: 1, title: 'Secure Lock Screen', desc: 'PIN set during setup. Biometrics disabled.', completed: true },
-    { id: 3, phase: 1, title: 'Google Services Config', desc: 'Usage data OFF; Backup OTHER DATA ON.', completed: true },
-    { id: 4, phase: 1, title: 'Samsung Account Setup', desc: 'Linked to primary number +1 951-299-6730.', completed: true },
-    { id: 5, phase: 1, title: 'Auto Blocker: Max Restrictions', desc: 'Settings > Security > Auto Blocker > Maximum > ON.', completed: true },
-    { id: 6, phase: 1, title: 'Lock Network & Security', desc: 'Settings > Lock screen > Secure lock settings > ON.', completed: true },
-    { id: 17, phase: 1, title: 'Lock Instantly / Auto Lock', desc: 'Set to "Immediately".', completed: true },
-    { id: 7, phase: 1, title: 'Theft Detection Lock', desc: 'Settings > Security > Theft protection > ON.', completed: false },
-    { id: 8, phase: 1, title: 'Offline Device Lock', desc: 'Settings > Security > Theft protection > ON.', completed: false },
-    { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Set Lock Screen notifications to "Hide Content".', completed: false },
-    { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Enabled for maximum battery/stealth.', completed: true },
-    { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Enable in Samsung Find settings.', completed: true },
-    { id: 12, phase: 2, title: 'Google Find Hub', desc: 'Set to "With network everywhere".', completed: false },
-    { id: 13, phase: 2, title: 'Store Recent Location', desc: 'Enable in Google Find My Device settings.', completed: false },
-    { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Routine: If Not Charging -> Send Text to Primary.', completed: false },
-    { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Routine: If Leaving Home -> Text "Car is moving".', completed: false },
+    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with dedicated account (2016.BMW.528i.black@gmail.com).', completed: true },
+    { id: 2, phase: 1, title: 'Secure Lock Screen', desc: '6+ digit PIN set. Biometrics and "Face/Lift to wake" disabled.', completed: true },
+    { id: 3, phase: 1, title: 'Secure lock settings: Device Settings', desc: 'Settings > Lock screen > Secure lock settings. Note: a. Auto lock: Immediately, b. Lock instantly with side button: ON.', completed: true },
+    { id: 4, phase: 1, title: 'Secure lock settings: Network Security', desc: 'Settings > Lock screen > Secure lock settings. Note: c. Auto factory reset: OFF, d. Lock network and security: ON, e. Show Lockdown option: OFF.', completed: true },
+    { id: 5, phase: 1, title: 'Auto Blocker: Max Restrictions', desc: 'Settings > Security and privacy > Auto Blocker. Maximum Restrictions: ON, App protection: ON.', completed: true },
+    { id: 6, phase: 1, title: 'Theft Detection Lock', desc: 'Settings > Security and privacy > Theft protection. Toggle ON.', completed: false },
+    { id: 7, phase: 1, title: 'Offline Device Lock', desc: 'Settings > Security and privacy > Theft protection. Toggle ON.', completed: false },
+    { id: 8, phase: 1, title: 'App Protection', desc: 'Settings > Security and privacy > App Security. App Protection: ON.', completed: false },
+    { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
+    { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
+    { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
+    { id: 12, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Find your offline devices. Set to "With network everywhere".', completed: false },
+    { id: 13, phase: 2, title: 'Store Recent Location', desc: 'Settings > Google > Find Hub. Store recent location: ON.', completed: false },
+    { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Routine: If Charging Status is "Not Charging" -> Send text to primary phone ("🚨 TRACKER UNPLUGGED").', completed: false },
+    { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Routine: If Leaving [Home Address] (100m Geofence) -> Disable Power Saving + Send text ("Car is moving").', completed: false }
   ]);
 
   const toggleTask = (id) => {
@@ -99,8 +97,8 @@ const App = () => {
                   key={task.id}
                   onClick={() => toggleTask(task.id)}
                   className={`group p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${task.completed
-                      ? 'bg-blue-900/10 border-blue-500/30 opacity-60 hover:opacity-100'
-                      : 'bg-slate-800 border-slate-700 hover:border-slate-500 shadow-lg shadow-black/20'
+                    ? 'bg-blue-900/10 border-blue-500/30 opacity-60 hover:opacity-100'
+                    : 'bg-slate-800 border-slate-700 hover:border-slate-500 shadow-lg shadow-black/20'
                     }`}
                 >
                   <div className="flex items-start gap-4">
