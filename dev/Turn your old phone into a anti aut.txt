@@ -1,0 +1,31 @@
+Turn your old phone into a anti auto-theft device:
+Model - Samsung Galaxy S25
+(after the new phone has been fully setup)
+
+On new phone:
+1. Create a new [anti-theft]@gmail.com account | 2016.BMW.528i.black@gmail.com
+On old phone (will need new phone to complete set-up:
+2. Sign out of all accounts on old phone
+3. Factory reset
+4. Set up phone
+	a. start
+		agree terms
+		agree privacy
+		agree
+	b. Set up manually
+	c. Connect to internet 			| adidas
+	d. Connect to a mobile network > Set up later
+	e. Copy apps & data > Don't copy
+	f. Add [anti-theft]@gmail.com account
+	e. Protect your phone > PIN
+5. Google services 
+	a. Send usage data > Off
+	b. Backup > Other device data
+
+6. AI assistant > Continue > No thanks
+7. Create Samsung account
+	a. Forgot password > Create account > over 13 > | 2016.BMW.528i.black@gmail.com
+	b. Enter personal phone number			| +1 951-299-6730
+8. Galaxy AI > more > Skip
+9. Samsung services > Only Auto Blocker > On
+10. Dark Mode
