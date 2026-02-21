@@ -17,7 +17,6 @@ const App = () => {
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
     { id: 19, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Tap your Device Name > Find your offline devices. Set to "With network everywhere".', completed: false },
-    { id: 13, phase: 2, title: 'Store Recent Location (SKIP)', desc: 'Settings > Google > Find Hub > Tap your Device Name. Skip if missing (typically baked into "With network everywhere" on newer devices).', completed: true },
     { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Routine: If Charging Status is "Not Charging" -> Send text to primary phone ("🚨 TRACKER UNPLUGGED").', completed: false },
     { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Routine: If Leaving [Home Address] (100m Geofence) -> Disable Power Saving + Send text ("Car is moving").', completed: false }
   ]);
