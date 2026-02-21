@@ -18,8 +18,8 @@ const App = () => {
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
     { id: 19, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Tap your Device Name > Find your offline devices. Set to "With network everywhere".', completed: false },
-    { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Modes & Routines > Routines tab > +. If: Add what will trigger... > Battery > Charging Status > Not Charging. Then: Add what this routine will do > Messages > Send message to primary.', completed: false },
-    { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Modes & Routines > Routines tab > +. If: Add what will trigger... > Place > Leaving [Home]. Then: Add what this routine will do > Power Saving (ON) + Messages > Send message ("Moving").', completed: false }
+    { id: 14, phase: 3, title: 'Unplug Alert (SKIP - NO SIM)', desc: 'Requires active SIM plan. Since this is a Wi-Fi/Bluetooth tracker, proactive SMS Routines cannot be used.', completed: true },
+    { id: 15, phase: 3, title: 'Movement Trigger (SKIP - NO SIM)', desc: 'Requires active SIM plan natively. The phone acts instead as a silent Bluetooth beacon for Phase 2 offline finding.', completed: true }
   ]);
 
   const toggleTask = (id) => {
