@@ -17,8 +17,8 @@ const App = () => {
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
     { id: 19, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Tap your Device Name > Find your offline devices. Set to "With network everywhere".', completed: false },
-    { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Routine: If Charging Status is "Not Charging" -> Then: Add action > Messages > Send message to primary phone ("🚨 TRACKER UNPLUGGED").', completed: false },
-    { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Routine: If Leaving [Home Address] (100m Geofence) -> Then: Disable Power Saving + Messages > Send message ("Car is moving").', completed: false }
+    { id: 14, phase: 3, title: 'Unplug Alert Routine', desc: 'Modes & Routines > Routines tab > + (New). If: Charging Status is "Not Charging". Then: Add action > Messages > Send message to primary.', completed: false },
+    { id: 15, phase: 3, title: 'Movement Trigger Routine', desc: 'Modes & Routines > Routines tab > + (New). If: Leaving [Home Address]. Then: Disable Power Saving + Messages > Send message.', completed: false }
   ]);
 
   const toggleTask = (id) => {
