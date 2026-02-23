@@ -1,16 +1,22 @@
-# React + Vite
+# Samsung Anti-Theft Tracker Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A standalone, React-based web application containing an interactive, mathematically optimized checklist for repurposing old Samsung devices (specifically Android 16 / One UI 8.0) into hyper-stealthy, off-grid anti-theft car tracking beacons.
 
-Currently, two official plugins are available:
+## Current Features
+*   **Dynamic SIM Toggles:** Seamlessly switch between "No SIM (Offline Tracking)" and "With SIM (Full Features)" modes to dynamically filter out impossible tasks like SMS tripwires or Remote Lock.
+*   **Ghost Hardening:** Step-by-step UI optimizations to strip the phone down to dark-mode, zero-brightness, absolute silence with zero background app drain.
+*   **Network Redundancy:** Leverage both Samsung's Find network and Google's Find My Device network via Bluetooth beaconing.
+*   **Export Logistics:** 1-click export to unformatted text for Google Sheets pasting, or direct CSV download for offline archiving.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Future Development Roadmap
+The following 7-step action plan has been established to evolve this tool from a local utility into a commercial-grade, multi-platform ecosystem:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Systematic Settings Audit:** Go through the rest of the settings in the Samsung phone systematically to see if any other obscure settings or features can be changed to further maximize battery or stealth. *(Currently in progress).*
+2. **Real-World Field Testing:** Fully field test the old phone inside a vehicle to continuously monitor ambient battery drain, beacon ping frequency, and recovery accuracy as an anti-car-theft device.
+3. **Commercialization of Webpage:** Upgrade the React webpage UI/UX to a commercial-grade standard.
+4. **SEO & Lead Funneling:** SEO optimize the webpage and establish a traffic funnel directly into an IT MSP consultant website induction form.
+5. **Automation App Development:** Create a native companion app that can automatically apply these checklist settings to the phone via ADB/MDM profiles.
+6. **Multi-Platform Expansion:** Upgrade the webpage into a "living website" that contains dynamic checklists for all of the most common phone OS versions (various Samsung One UI versions, Google Pixel/Stock Android, Apple iOS) for turning *any* old phone into an anti-theft device.
+7. **Alternative Use-Case Expansion:** Research and document other novel use-cases for this kind of extreme old phone repurposing (e.g., dedicated hardware MFA tokens).
