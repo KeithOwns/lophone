@@ -19,6 +19,7 @@ const App = () => {
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
     { id: 22, phase: 4, title: 'Uninstall/Disable Bloatware', desc: 'Settings > Apps. Uninstall or disable all non-essential apps. If an app lacks a "Disable" button (e.g. Samsung Internet), just ignore it.', completed: false },
     { id: 23, phase: 4, title: 'Disable Auto Sync Data', desc: 'Settings > Accounts and backup > Manage accounts > Auto sync data. Toggle OFF to prevent background battery drain.', completed: false },
+    { id: 24, phase: 4, title: 'Enable Easy Mode', desc: 'Settings > Display > Easy Mode. Toggle ON for a cleaner, magnified home screen layout for remaining apps.', completed: false },
     { id: 21, phase: 2, title: 'Bluetooth & Wi-Fi Tracking', desc: 'Settings > Connections. Ensure both Bluetooth and Wi-Fi are toggled ON. Without Bluetooth, the offline beacon will not broadcast.', completed: false },
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
