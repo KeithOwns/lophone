@@ -17,6 +17,7 @@ const App = () => {
     { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
     { id: 20, phase: 1, title: 'Silence & Do Not Disturb', desc: 'Settings > Notifications > Do Not Disturb. Toggle ON. (Reduces chance of thief hearing the tracker).', completed: false },
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
+    { id: 21, phase: 2, title: 'Bluetooth & Wi-Fi Tracking', desc: 'Settings > Connections. Ensure both Bluetooth and Wi-Fi are toggled ON. Without Bluetooth, the offline beacon will not broadcast.', completed: false },
     { id: 11, phase: 2, title: 'Samsung Offline Finding', desc: 'Samsung Find settings > Offline Finding: Enabled. Phone number verification: Enabled (+1 951-299-6730).', completed: true },
     { id: 12, phase: 2, title: 'Google Find Hub (App)', desc: 'Install "Find Hub" APP. Sign in. Go to Phone Settings > Apps > Find Hub. Notifications: OFF. Location: Allow only while using app.', completed: false },
     { id: 19, phase: 2, title: 'Google Find Hub Network', desc: 'Settings > Google > Find Hub > Tap your Device Name > Find your offline devices. Set to "With network everywhere".', completed: false },
