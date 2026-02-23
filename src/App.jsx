@@ -57,7 +57,7 @@ const App = () => {
     const a = document.createElement('a');
     a.setAttribute('hidden', '');
     a.setAttribute('href', url);
-    a.setAttribute('download', `s25_anti_theft_log_${simMode}.csv`);
+    a.setAttribute('download', `samsung_anti_theft_log_${simMode}.csv`);
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -70,9 +70,9 @@ const App = () => {
       <div className="max-w-2xl mx-auto">
         <header className="mb-8 text-center md:text-left">
           <h1 className="text-3xl font-bold mb-2 flex items-center justify-center md:justify-start gap-3">
-            <ShieldAlert className="text-blue-400" /> S25 Anti-Theft Tracker
+            <ShieldAlert className="text-blue-400" /> Samsung Anti-Theft Tracker
           </h1>
-          <p className="text-slate-400 mb-6 text-sm">Target Configuration: Samsung Galaxy S25 | Android 16 | One UI 8.0</p>
+          <p className="text-slate-400 mb-6 text-sm">Target Configuration: Samsung Galaxy Device | Android 16 | One UI 8.0</p>
           <div className="w-full bg-slate-800 rounded-full h-4 mb-2">
             <div
               className="bg-blue-500 h-4 rounded-full transition-all duration-500"
