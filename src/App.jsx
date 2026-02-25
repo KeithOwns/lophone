@@ -15,6 +15,7 @@ const App = () => {
     { id: 18, phase: 1, title: 'Lost Device: Remote Lock', desc: 'Settings > Security and privacy > Lost device protection > Theft protection. Toggle "Remote Lock" ON.', completed: false, requiresSim: true },
     { id: 8, phase: 1, title: 'App Protection', desc: 'Settings > Security and privacy > App Security. App Protection: ON.', completed: false },
     { id: 9, phase: 1, title: 'Hide Notifications', desc: 'Settings > Notifications > Lock screen notifications. Set to "Hide Content".', completed: false },
+    { id: 25, phase: 1, title: 'Mute Sounds & Disable Vibration', desc: 'Settings > Sounds and vibration. Sound mode: Mute. System vibration: OFF. (Prevents discovering the tracker via sound/buzzing).', completed: false },
     { id: 20, phase: 1, title: 'Silence & Do Not Disturb', desc: 'Settings > Notifications > Do Not Disturb. Toggle ON. (Reduces chance of thief hearing the tracker).', completed: false },
     { id: 10, phase: 1, title: 'Dark Mode & Zero Brightness', desc: 'Display set to Dark Mode. Brightness at 0%.', completed: true },
     { id: 22, phase: 4, title: 'Uninstall/Disable Bloatware', desc: 'Settings > Apps. Uninstall or disable all non-essential apps. If an app lacks a "Disable" button (e.g. Samsung Internet), just ignore it.', completed: false },
