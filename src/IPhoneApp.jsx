@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle2, Circle, ShieldAlert, Radio, MapPin, Zap, Copy, Download, Battery, ChevronDown, ChevronRight, Eye, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TutorialModal from './TutorialModal';
@@ -99,6 +99,35 @@ const IPhoneApp = () => {
                 title: '14/14 · Disable Siri on Lock Screen',
                 description: 'Settings > Face ID & Passcode > "Allow Access When Locked" section > Siri: OFF. Prevents voice commands from bypassing the lock screen.',
             },
+        ],
+        phase2: [
+            {
+                image: '/ios_settings_general.png',
+                title: '1/3 · Wi-Fi & Bluetooth',
+                description: 'Settings > Wi-Fi: toggle ON. Settings > Bluetooth: toggle ON. Both are essential for Find My network beacon broadcasting to nearby Apple devices.',
+            },
+            {
+                image: '/ios_apple_id.png',
+                title: '2/3 · Verify Find My Network',
+                description: 'Settings > [Apple ID] > Find My > Find My iPhone. Confirm "Find My network" is ON. This is the crowd-sourced tracking backbone (1 billion+ Apple devices).',
+            },
+            {
+                image: '/ios_apple_id.png',
+                title: '3/3 · Share My Location',
+                description: 'Settings > [Apple ID] > Find My > Share My Location: ON. Share with a trusted contact so they can also track the device from their own Find My app.',
+            },
+        ],
+        phase3: [
+            {
+                image: '/ios_settings_general.png',
+                title: '1/2 · Charger Disconnect Alert',
+                description: 'Open Shortcuts app > Automation > + > "When Charger" disconnects > Send Message to your primary number. Alerts you silently if a thief unplugs the tracker.',
+            },
+            {
+                image: '/ios_settings_general.png',
+                title: '2/2 · Leave Location Alert',
+                description: 'Shortcuts app > Automation > + > "Leave" > select Home > Send Message ("Vehicle moving"). Auto-geofence alerts you if the vehicle leaves your location.',
+            },
         ]
     };
 
@@ -135,8 +164,23 @@ const IPhoneApp = () => {
 
     const visibleTasks = simMode === 'with-sim' ? tasks : tasks.filter(t => !t.requiresSim);
 
+    // Load saved progress from localStorage on mount
+    useEffect(() => {
+        const saved = localStorage.getItem('lophone-iphone-progress');
+        if (saved) {
+            try {
+                const completedIds = JSON.parse(saved);
+                setTasks(prev => prev.map(t => ({ ...t, completed: completedIds.includes(t.id) })));
+            } catch (e) { /* ignore corrupt data */ }
+        }
+    }, []);
+
     const toggleTask = (id) => {
-        setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+        setTasks(prev => {
+            const updated = prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+            localStorage.setItem('lophone-iphone-progress', JSON.stringify(updated.filter(t => t.completed).map(t => t.id)));
+            return updated;
+        });
     };
 
     const copyToSheets = () => {
@@ -243,9 +287,9 @@ const IPhoneApp = () => {
                                 {phase === 2 && <MapPin size={22} className="text-purple-500" />}
                                 {phase === 3 && <Zap size={22} className="text-purple-500" />}
                                 Phase {phase}: {phase === 1 ? 'Ghost Hardening' : phase === 2 ? 'Find Network' : 'Tripwire Automations'}
-                                {phase === 1 && (
+                                {(phase === 1 || phase === 2 || phase === 3) && tutorials[`phase${phase}`] && (
                                     <button
-                                        onClick={() => setShowTutorial('phase1')}
+                                        onClick={() => setShowTutorial(`phase${phase}`)}
                                         className="ml-auto flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 hover:text-purple-200 text-xs font-medium transition-all cursor-pointer border border-purple-500/30"
                                     >
                                         <Eye size={14} /> Show me how
@@ -256,6 +300,7 @@ const IPhoneApp = () => {
                                 {phaseTasks.map(task => (
                                     <div
                                         key={task.id}
+                                        id={`task-${task.id}`}
                                         onClick={() => toggleTask(task.id)}
                                         className={`group p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${task.completed
                                             ? 'bg-purple-900/10 border-purple-500/30 opacity-60 hover:opacity-100'
@@ -339,10 +384,33 @@ const IPhoneApp = () => {
                 })()}
             </div>
 
+            {/* Sticky progress footer */}
+            {(() => {
+                const completed = visibleTasks.filter(t => t.completed).length;
+                const total = visibleTasks.length;
+                const nextTask = visibleTasks.find(t => !t.completed);
+                return (
+                    <div className="fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm border-t border-slate-700 py-3 px-6 flex items-center justify-between z-40">
+                        <span className="text-sm text-slate-300 font-medium">
+                            ✅ {completed}/{total} tasks complete
+                        </span>
+                        {nextTask && (
+                            <button
+                                onClick={() => document.getElementById(`task-${nextTask.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                                className="text-xs px-3 py-1.5 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 text-purple-300 hover:text-purple-200 border border-purple-500/30 transition-all cursor-pointer"
+                            >
+                                Jump to next →
+                            </button>
+                        )}
+                    </div>
+                );
+            })()}
+
             {showTutorial !== null && tutorials[showTutorial] && (
                 <TutorialModal
                     steps={tutorials[showTutorial]}
                     onClose={() => setShowTutorial(null)}
+                    accentColor="purple"
                 />
             )}
         </div>

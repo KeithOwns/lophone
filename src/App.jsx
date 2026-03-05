@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle2, Circle, ShieldAlert, Radio, MapPin, Zap, Copy, Download, Battery, ChevronDown, ChevronRight, Eye, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TutorialModal from './TutorialModal';
@@ -108,6 +108,40 @@ const App = () => {
         title: '15/15 · Dark Mode & Zero Brightness',
         description: 'Settings > Display. Enable Dark Mode and drag the brightness slider all the way to 0%. Maximizes battery life and stealth.',
       },
+    ],
+    phase2: [
+      {
+        image: '/settings_home.png',
+        title: '1/4 · Enable Bluetooth & Wi-Fi',
+        description: 'Settings > Connections. Ensure both Bluetooth and Wi-Fi are toggled ON. These are essential for offline Find My beacon broadcasting.',
+      },
+      {
+        image: '/settings_home.png',
+        title: '2/4 · Samsung Offline Finding',
+        description: 'Open Samsung Find app > Settings > Offline Finding: Enable. Verify your phone number. This lets any nearby Galaxy phone relay your tracker\'s encrypted location.',
+      },
+      {
+        image: '/settings_home.png',
+        title: '3/4 · Install Google Find Hub',
+        description: 'Open Play Store > search "Find Hub" > Install. Sign in. Then Settings > Apps > Find Hub: Notifications OFF, Location: Allow only while using app.',
+      },
+      {
+        image: '/settings_home.png',
+        title: '4/4 · Find Hub Network',
+        description: 'Settings > Google > Find Hub > tap your device > Find your offline devices > "With network everywhere". Maximizes pickup by any passing Android phone.',
+      },
+    ],
+    phase3: [
+      {
+        image: '/settings_home.png',
+        title: '1/2 · Unplug Alert Routine',
+        description: 'Modes & Routines > Routines > +. If: Battery > Charging Status > Not Charging. Then: Messages > Send message to your primary number. Alerts you if unplugged.',
+      },
+      {
+        image: '/settings_home.png',
+        title: '2/2 · Movement Trigger Routine',
+        description: 'Modes & Routines > Routines > +. If: Place > Leaving [Home]. Then: Power Saving ON + Send message ("Moving"). Creates an auto-geofence for the vehicle.',
+      },
     ]
   };
 
@@ -143,8 +177,23 @@ const App = () => {
 
   const visibleTasks = simMode === 'with-sim' ? tasks : tasks.filter(t => !t.requiresSim);
 
+  // Load saved progress from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('lophone-samsung-progress');
+    if (saved) {
+      try {
+        const completedIds = JSON.parse(saved);
+        setTasks(prev => prev.map(t => ({ ...t, completed: completedIds.includes(t.id) })));
+      } catch (e) { /* ignore corrupt data */ }
+    }
+  }, []);
+
   const toggleTask = (id) => {
-    setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+    setTasks(prev => {
+      const updated = prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+      localStorage.setItem('lophone-samsung-progress', JSON.stringify(updated.filter(t => t.completed).map(t => t.id)));
+      return updated;
+    });
   };
 
   const copyToSheets = () => {
@@ -254,9 +303,9 @@ const App = () => {
                 {phase === 2 && <MapPin size={22} className="text-blue-500" />}
                 {phase === 3 && <Zap size={22} className="text-blue-500" />}
                 Phase {phase}: {phase === 1 ? 'Ghost Hardening' : phase === 2 ? 'Find Network' : 'Tripwire Routines'}
-                {phase === 1 && (
+                {(phase === 1 || phase === 2 || phase === 3) && tutorials[`phase${phase}`] && (
                   <button
-                    onClick={() => setShowTutorial('phase1')}
+                    onClick={() => setShowTutorial(`phase${phase}`)}
                     className="ml-auto flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 hover:text-blue-200 text-xs font-medium transition-all cursor-pointer border border-blue-500/30"
                   >
                     <Eye size={14} /> Show me how
@@ -267,6 +316,7 @@ const App = () => {
                 {phaseTasks.map(task => (
                   <div
                     key={task.id}
+                    id={`task-${task.id}`}
                     onClick={() => toggleTask(task.id)}
                     className={`group p-4 rounded-2xl border transition-all duration-200 cursor-pointer ${task.completed
                       ? 'bg-blue-900/10 border-blue-500/30 opacity-60 hover:opacity-100'
@@ -350,10 +400,33 @@ const App = () => {
         })()}
       </div>
 
+      {/* Sticky progress footer */}
+      {(() => {
+        const completed = visibleTasks.filter(t => t.completed).length;
+        const total = visibleTasks.length;
+        const nextTask = visibleTasks.find(t => !t.completed);
+        return (
+          <div className="fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm border-t border-slate-700 py-3 px-6 flex items-center justify-between z-40">
+            <span className="text-sm text-slate-300 font-medium">
+              ✅ {completed}/{total} tasks complete
+            </span>
+            {nextTask && (
+              <button
+                onClick={() => document.getElementById(`task-${nextTask.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                className="text-xs px-3 py-1.5 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 text-blue-300 hover:text-blue-200 border border-blue-500/30 transition-all cursor-pointer"
+              >
+                Jump to next →
+              </button>
+            )}
+          </div>
+        );
+      })()}
+
       {showTutorial !== null && tutorials[showTutorial] && (
         <TutorialModal
           steps={tutorials[showTutorial]}
           onClose={() => setShowTutorial(null)}
+          accentColor="blue"
         />
       )}
     </div>
