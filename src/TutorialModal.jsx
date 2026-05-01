@@ -14,7 +14,7 @@ const accentMap = {
     },
 };
 
-const TutorialModal = ({ steps, onClose, accentColor = 'blue' }) => {
+const TutorialModal = ({ steps, onClose, onComplete, accentColor = 'blue' }) => {
     const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState('forward'); // 'forward' | 'backward'
     const [animating, setAnimating] = useState(false);
@@ -58,12 +58,16 @@ const TutorialModal = ({ steps, onClose, accentColor = 'blue' }) => {
     useEffect(() => {
         const handler = (e) => {
             if (e.key === 'Escape') onClose();
+            if (e.key === 'Enter' && current === steps.length - 1) {
+                if (onComplete) onComplete();
+                onClose();
+            }
             if (e.key === 'ArrowRight') next();
             if (e.key === 'ArrowLeft') prev();
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [onClose, next, prev]);
+    }, [onClose, onComplete, next, prev, current, steps.length]);
 
     const step = steps[current];
 
@@ -207,6 +211,7 @@ const TutorialModal = ({ steps, onClose, accentColor = 'blue' }) => {
                         <button
                             onClick={() => {
                                 if (current === steps.length - 1) {
+                                    if (onComplete) onComplete();
                                     onClose();
                                 } else {
                                     next();
