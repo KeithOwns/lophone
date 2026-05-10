@@ -3,7 +3,7 @@ import { CheckCircle2, Circle, ShieldAlert, Radio, MapPin, Zap, Copy, Download }
 
 const App = () => {
   const [tasks, setTasks] = useState([
-    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with 2016.BMW.528i.black@gmail.com.', completed: true },
+    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with my.hidden.tracker@example.com.', completed: true },
     { id: 16, phase: 1, title: '2FA Audit', desc: 'Confirmed all personal 2FA moved to PRIMARY phone.', completed: true },
     { id: 2, phase: 1, title: 'Secure Lock Screen', desc: 'PIN set during setup. Biometrics disabled.', completed: true },
     { id: 3, phase: 1, title: 'Google Services Config', desc: 'Usage data OFF; Backup OTHER DATA ON.', completed: true },

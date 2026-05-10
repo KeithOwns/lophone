@@ -182,7 +182,7 @@ const AndroidApp = () => {
 
     const initialTasks = [
     { id: 0, phase: 1, title: 'Update Software', desc: 'Settings > System update. Ensure OS and Play Store apps are fully updated before proceeding. Why: Patches known security exploits.', completed: false },
-    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with dedicated account (e.g., 2016.BMW.tracker@gmail.com). Why: Prevents a thief from accessing your primary personal data if the lock screen is bypassed.', completed: false },
+    { id: 1, phase: 1, title: 'Account Isolation', desc: 'Signed in with dedicated account (e.g., my.hidden.tracker@example.com). Why: Prevents a thief from accessing your primary personal data if the lock screen is bypassed.', completed: false },
     { id: 26, phase: 1, title: 'Account Recovery', desc: 'Set your personal cell phone number as the account recovery method for the dedicated account. Why: Ensures you never lose access to the tracker\'s tracking account.', completed: false },
     { id: 2, phase: 1, title: 'Secure Lock Screen', desc: '6+ digit PIN set. Biometrics disabled. Why: Stops thieves from guessing easy patterns or using your biometric data against you.', completed: false },
     { id: 3, phase: 1, title: 'Secure lock settings: Device Settings', desc: 'Settings > Security > Screen lock settings. Power button instantly locks: ON. Why: Ensures the phone is instantly secured the moment the screen goes dark.', completed: false },
