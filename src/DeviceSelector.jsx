@@ -93,10 +93,10 @@ const DeviceSelector = () => {
                     <ShieldAlert size={16} /> LoPhone Tracker
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
-                    Turn your spare phone into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">hidden GPS tracker.</span>
+                    Turn your spare phone into an <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">anti-theft recovery beacon.</span>
                 </h1>
                 <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                    Hide an old phone in your car, bike, or luggage. Use our guide to completely ghost the device so a thief never knows it's there, while you track its location globally.
+                    Secure your car, bike, or luggage using an old smartphone. Our guide helps you completely ghost the device so if your property is ever moved without your consent, you can track it down and recover it safely.
                 </p>
 
                 <StickFigureAnimation />
